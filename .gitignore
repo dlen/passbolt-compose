@@ -1,2 +1,2 @@
-./persistence/database/*
+persistence/database
 *.swp
