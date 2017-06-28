@@ -17,5 +17,5 @@ The repo as it is it has development/testing purposes.
 Host environments such as macos require to expose ports on the host and access the continaers through localhost.
 Keep this in mind as you would need to add a ```ports:``` section on the passbolt service declared in ```docker-compose.yml```
 
-More info: [official docker image from the docker hub](https://hub.docker.com/r/passbolt/passbolt/).
+More info: [limitations](https://docs.docker.com/docker-for-mac/networking/#known-limitations-use-cases-and-workarounds)
 
