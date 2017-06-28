@@ -8,4 +8,14 @@ The repo as it is it has development/testing purposes.
 
 ## Usage
 
-```docker-compose up```
+* Launch the containers: ```docker-compose up```
+* Get container ip address: ```docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' passboltcompose_passbolt_1```
+* Browse the previous ip address obtained on port 443 https://container_ip
+
+### Non GNU/Linux users
+
+Host environments such as macos require to expose ports on the host and access the continaers through localhost.
+Keep this in mind as you would need to add a ```ports:``` section on the passbolt service declared in ```docker-compose.yml```
+
+More info: [official docker image from the docker hub](https://hub.docker.com/r/passbolt/passbolt/).
+
