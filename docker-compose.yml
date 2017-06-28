@@ -3,11 +3,8 @@ services:
 
   db:
     image: mysql:latest
-    environment:
-      - MYSQL_ROOT_PASSWORD=test
-      - MYSQL_DATABASE=passbolt
-      - MYSQL_USER=passbolt
-      - MYSQL_PASSWORD=P4ssb0lt
+    env_file:
+      - ./env/mysql.env
     volumes:
       - ./persistence/database:/var/lib/mysql
     ports:
