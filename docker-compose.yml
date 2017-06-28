@@ -17,29 +17,8 @@ services:
     image: passbolt/passbolt
     depends_on:
       - db
-    environment:
-      - db_host=db
-      - db_pass=P4ssb0lt
-      - db_user=passbolt
-      - db_name=passbolt
-        #- key_length=
-        #- subkey_length=
-        #- key_name=
-        #- key_email=
-        #- key_expiration=
-        #- fingerprint=
-        #- registration=
-        #- ssl=
-        #- salt=
-        #- cipherseed=
-      - url=passbolt.dev
-        #- email_transport=
-        #- email_from=
-        #- email_host=
-        #- email_port=
-        #- email_timeout=
-        #- email_username=
-        #- email_password=
+    env_file:
+      - ./env/passbolt.env
     volumes:
       - ./persistence/passbolt/certificates/certificate.crt:/etc/ssl/certs/certificate.crt
       - ./persistence/passbolt/certificates/certificate.crt:/etc/ssl/certs/certificate.crt
