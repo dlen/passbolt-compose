@@ -1,0 +1,15 @@
+version: '3'
+services:
+
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+      - MYSQL_DATABASE=passbolt
+      - MYSQL_USER=passbolt
+      - MYSQL_PASSWORD=p4ssb0lt
+    volumes:
+      - ./persistence/database:/var/lib/mysql
+    ports:
+      - 3306:3306
+
