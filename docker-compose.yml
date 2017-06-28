@@ -17,6 +17,7 @@ services:
     env_file:
       - ./env/passbolt.env
     volumes:
+      - ./persistence/passbolt/gpg_keys/:/var/www/passbolt/app/Config/gpg/
       - ./persistence/passbolt/certificates/certificate.crt:/etc/ssl/certs/certificate.crt
-      - ./persistence/passbolt/certificates/certificate.crt:/etc/ssl/certs/certificate.crt
+      - ./persistence/passbolt/certificates/certificate.crt:/etc/ssl/certs/certificate.key
       - ./persistence/passbolt/images:/var/www/passbolt/app/webroot/img/public/images
