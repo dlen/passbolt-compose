@@ -1,21 +1,21 @@
-version: '3'
+version: '3.4'
 services:
 
   db:
     image: mysql:latest
     env_file:
-      - ./env/mysql.env
+      - env/mysql.env
     volumes:
       - ./persistence/database:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 3306
 
   passbolt:
     image: passbolt/passbolt
     depends_on:
       - db
     env_file:
-      - ./env/passbolt.env
+      - env/passbolt.env
     volumes:
       - ./scripts/wait-for-it.sh:/usr/bin/wait-for-it.sh
       - ./persistence/passbolt/gpg_keys:/var/www/passbolt/app/Config/gpg
@@ -23,4 +23,21 @@ services:
       - ./persistence/passbolt/certificates/certificate.crt:/etc/ssl/certs/certificate.crt
       - ./persistence/passbolt/images:/var/www/passbolt/app/webroot/img/public/images
     command: ["/usr/bin/wait-for-it.sh", "db:3306", "-t", "0", "--", "/docker-entrypoint.sh"]
+
+  poste:
+    image: analogic/poste.io
+    ports:
+      - 25:25
+      - 8080:80
+      - 4433:443
+      - 110:110
+      - 143:143
+      - 465:465
+      - 587:587
+      - 993:993
+      - 995:995
+    volumes:
+      - ./persistence/poste/data:/data
+
+
 
