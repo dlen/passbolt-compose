@@ -21,4 +21,4 @@ services:
       - ./persistence/passbolt/certificates/certificate.key:/etc/ssl/certs/certificate.key
       - ./persistence/passbolt/certificates/certificate.crt:/etc/ssl/certs/certificate.crt
       - ./persistence/passbolt/images:/var/www/passbolt/webroot/img/public/images
-    command: ["/usr/bin/wait-for.sh", "db:3306", "-t", "0", "--", "/docker-entrypoint.sh"]
+    command: ["/usr/bin/wait-for.sh", "db:3306", "--", "/docker-entrypoint.sh"]
