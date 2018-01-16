@@ -1,6 +1,5 @@
 version: '3.4'
 services:
-
   db:
     image: mysql:latest
     env_file:
@@ -18,8 +17,8 @@ services:
       - env/passbolt.env
     volumes:
       - ./scripts/wait-for-it.sh:/usr/bin/wait-for-it.sh
-      - ./persistence/passbolt/gpg_keys:/var/www/passbolt/app/Config/gpg
+      - ./persistence/passbolt/gpg_keys:/var/www/passbolt/config/gpg
       - ./persistence/passbolt/certificates/certificate.key:/etc/ssl/certs/certificate.key
       - ./persistence/passbolt/certificates/certificate.crt:/etc/ssl/certs/certificate.crt
-      - ./persistence/passbolt/images:/var/www/passbolt/app/webroot/img/public/images
+      - ./persistence/passbolt/images:/var/www/passbolt/webroot/img/public/images
     command: ["/usr/bin/wait-for-it.sh", "db:3306", "-t", "0", "--", "/docker-entrypoint.sh"]
