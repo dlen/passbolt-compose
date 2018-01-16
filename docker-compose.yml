@@ -23,4 +23,7 @@ services:
       - ./persistence/passbolt/certificates/certificate.crt:/etc/ssl/certs/certificate.crt
       - ./persistence/passbolt/images:/var/www/passbolt/app/webroot/img/public/images
     command: ["/usr/bin/wait-for-it.sh", "db:3306", "-t", "0", "--", "/docker-entrypoint.sh"]
+    ports:
+      - 80:80
+      - 443:443
 
