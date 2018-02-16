@@ -1,3 +1,11 @@
+# Important note
+
+This repository won't receive any updates soon. The work I have done regarding
+the composer files is being merged on [passbolt_docker](https://github.com/passbolt/passbolt_docker) official repository
+with more enhancements for the upcoming v2. You can check the current state in the [develop branch](https://github.com/passbolt/passbolt_docker/tree/develop)
+This repository won't be deleted. However, I encourage users to switch to the official docker-compose files provided on the official
+passbolt_docker repo once passbolt-2.0.0 is out.
+
 # passbolt docker compose
 
 This is a docker compose that eases passbolt execution.
